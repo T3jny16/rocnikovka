@@ -18,11 +18,21 @@ export default function Home() {
         <p className="text-lg text-gray-700 mb-6">Nadcházející Eventy.</p>
 
         <div className="flex justify-center  space-x-4">
-          
           <img src="/michaldavid.jpg" alt="Michal David" className="w-1/3 rounded-lg shadow-md"></img>
           <img src="/lynyrd.jpg" alt="LynyrdD" className="w-1/3 rounded-lg shadow-md"></img>
-
         </div>
+
+        <div className="mt-10">
+          <h2 className="text-2xl font-bold mb-4">Kde nás najdete</h2>
+          <iframe
+            title="Mapa O₂ Arény"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2563.519928464246!2d14.487273776734154!3d50.1045211135995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470becd370d90021%3A0x9dfbb9b2a76d1fae!2sO2%20arena!5e0!3m2!1scs!2scz!4v1710685641234!5m2!1scs!2scz"
+            width="100%"
+            height="450"      
+            allowFullScreen=""           
+          ></iframe>
+        </div>
+
       </main>
       <footer className="bg-blue-600 text-white text-center p-4 mt-6">
       <p>&copy; 2025 O₂ Arena. Všechna práva vyhrazena.</p>
@@ -35,7 +45,7 @@ export default function Home() {
           </Link>
       </div>
       </footer>
-      
+
     </div>
   );
 }
