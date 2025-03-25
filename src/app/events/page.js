@@ -59,6 +59,20 @@ export default function Events() {
           "🎟️ Rezervace vstupenek: Klikněte na tlačítko REZERVACE níže."
         ]}
       />
+      <EventCard
+        imgSrc="/lynyrd.jpg"
+        title="Lynyrd Skynyrd"
+        date="24. července 2025"
+        description={[
+          "🎸 Lynyrd Skynyrd v O₂ Aréně – 24. července 2025 🎵",
+          "Legendární rocková kapela Lynyrd Skynyrd vystoupí poprvé v Praze!",
+          "Přijďte si užít ikonické skladby jako \"Sweet Home Alabama\", \"Free Bird\" a další klasiky této jižanské rockové kapely.",
+          "🔔 Tento koncert bude nezapomenutelným zážitkem pro všechny milovníky rockové hudby. Nenechte si ho ujít!",
+          "📅 Datum: 24. července 2025",
+          "📍 Místo: O₂ Aréna, Praha",
+          "🎟️ Rezervace vstupenek: Klikněte na tlačítko REZERVACE níže."
+        ]}
+      />
     </div>
   );
 }
