@@ -60,7 +60,7 @@ export default function Events() {
         ]}
       />
       <EventCard
-        imgSrc="/lynyrd.jpg"
+        img="/lynyrd.jpg"
         title="Lynyrd Skynyrd"
         date="24. července 2025"
         description={[
