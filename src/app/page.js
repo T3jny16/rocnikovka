@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -25,6 +26,14 @@ export default function Home() {
       </main>
       <footer className="bg-blue-600 text-white text-center p-4 mt-6">
       <p>&copy; 2025 O₂ Arena. Všechna práva vyhrazena.</p>
+      <div className="flex justify-center space-x-4 mt-4">
+        <Link href="https://www.facebook.com/o2arenapraha/?locale=cs_CZ">
+        <FaFacebook className="text-white text-2xl hover:text-gray-300" />
+        </Link>
+        <Link href="https://www.instagram.com/o2arenapraha/?hl=cs" target="_blank" rel="noopener noreferrer">
+            <FaInstagram className="text-white text-2xl hover:text-gray-300" />
+          </Link>
+      </div>
       </footer>
       
     </div>
