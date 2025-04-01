@@ -12,6 +12,7 @@ export default function Home() {
         <Link href="/" className="text-blue-600 hover:underline">Domů</Link>
         <Link href="/events" className="text-blue-600 hover:underline">Akce</Link>
         <Link href="/contact" className="text-blue-600 hover:underline">Kontakt</Link>
+        <Link href="/info" className="text-blue-600 hover:underline">O nás</Link>
       </nav>
       <main className=" flex-grow p-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Vítejte v O₂ Aréně!</h1>
