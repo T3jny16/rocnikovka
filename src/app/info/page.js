@@ -20,7 +20,7 @@ export default function Info() {
 
         <div className="flex space-x-8 mb-8">
           <Link href="/info" className="text-blue-600 hover:underline">Průvodce arenou</Link>
-          <Link href="/gallery" className="text-blue-600 hover:underline">Fotogalerie</Link>
+          <Link href="/gallery/" className="text-blue-600 hover:underline">Fotogalerie</Link>
           <Link href="https://www.hcsparta.cz/zobraz.asp?t=O2-arena" className="text-blue-600 hover:underline" target="_blank">HC Sparta Praha</Link>
         </div>
 
