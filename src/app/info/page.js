@@ -8,30 +8,64 @@ export default function Info() {
       </header>
 
       <nav className="flex justify-center space-x-4 p-4 bg-white shadow-md text-lg">
-        <Link href="/" className="text-blue-600 hover:underline">Domů</Link>
-        <Link href="/events" className="text-blue-600 hover:underline">Akce</Link>
-        <Link href="/contact" className="text-blue-600 hover:underline">Kontakt</Link>
-        <Link href="/info" className="text-blue-600 hover:underline">O nás</Link>
+        <Link href="/" className="text-blue-600 hover:underline">
+          Domů
+        </Link>
+        <Link href="/events" className="text-blue-600 hover:underline">
+          Akce
+        </Link>
+        <Link href="/contact" className="text-blue-600 hover:underline">
+          Kontakt
+        </Link>
+        <Link href="/info" className="text-blue-600 hover:underline">
+          O nás
+        </Link>
       </nav>
 
       <div className="flex flex-col items-center justify-center mt-10 p-6 bg-white shadow-lg rounded-2xl max-w-6xl mx-auto">
-
-        <p className="text-lg mb-4 text-center">O₂ Arena je jednou z nejmodernějších multifunkčních hal v Evropě, která hostí koncerty, sportovní události a další významné akce.</p>
+        <p className="text-lg mb-4 text-center">
+          O₂ Arena je jednou z nejmodernějších multifunkčních hal v Evropě,
+          která hostí koncerty, sportovní události a další významné akce.
+        </p>
 
         <div className="flex space-x-8 mb-8">
-          <Link href="/info" className="text-blue-600 hover:underline">Průvodce arenou</Link>
-          <Link href="/gallery/" className="text-blue-600 hover:underline">Fotogalerie</Link>
-          <Link href="https://www.hcsparta.cz/zobraz.asp?t=O2-arena" className="text-blue-600 hover:underline" target="_blank">HC Sparta Praha</Link>
+          <Link href="/info" className="text-blue-600 hover:underline">
+            Průvodce arenou
+          </Link>
+          <Link href="/gallery/" className="text-blue-600 hover:underline">
+            Fotogalerie
+          </Link>
+          <Link
+            href="https://www.hcsparta.cz/zobraz.asp?t=O2-arena"
+            className="text-blue-600 hover:underline"
+            target="_blank"
+          >
+            HC Sparta Praha
+          </Link>
         </div>
 
         <div className="mt-8 space-y-6">
           <div className="flex items-center space-x-6">
-            <img src="/o2arena.jpg" alt="O₂ Arena" className="w-80  rounded-lg" />
-            <p className="text-lg">O₂ Arena je symbolem moderní architektury a poskytuje špičkové zázemí pro všechny návštěvníky.</p>
+            <img
+              src="/o2arena.jpg"
+              alt="O₂ Arena"
+              className="w-80  rounded-lg"
+            />
+            <p className="text-lg">
+              O₂ Arena je symbolem moderní architektury a poskytuje špičkové
+              zázemí pro všechny návštěvníky.
+            </p>
           </div>
           <div className="flex items-center space-x-6">
-            <img src="/nohavica.jpg" alt="Interiér O₂ Areny" className="w-80  rounded-lg" />
-            <p className="text-lg">Uvnitř arény najdete více než 17 000 míst k sezení a prvotřídní technické vybavení.</p>
+            <img
+              src="/nohavica.jpg"
+              alt="Interiér O₂ Areny"
+              className="w-80  rounded-lg"
+            />
+            <p className="text-lg">
+              Uvnitř arény najdete více než 17 000 míst k sezení a prvotřídní
+              technické vybavení.
+            </p>
           </div>
         </div>
       </div>

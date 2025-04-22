@@ -1,78 +1,88 @@
+"use client";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const EventCard = ({ img, title, date, description }) => (
-  <div className="max-w-2xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-md">
-    <Image src={img} alt={title} width={600} height={400} className="rounded-lg" />
-    <ul>
-      <li className="p-3 border-b last:border-none">
-        <span className="font-bold text-xl">{title}</span> – {date}
-      </li>
-    </ul>
-    
-    <div className="mt-6">
-      {description.map((text, index) => (
-        <p key={index} className="mt-2">{text}</p>
-      ))}
+const EventCard = ({ img, id, title, date, description }) => {
+  const formattedDate = new Date(date).toLocaleString("cs-CZ", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  return (
+    <div className="max-w-2xl mx-auto mt-6 bg-white p-6 rounded-lg shadow-md">
+      <Image
+        src={img}
+        alt={title}
+        width={600}
+        height={400}
+        className="rounded-lg"
+      />
+
+      <ul>
+        <li className="p-3 border-b last:border-none">
+          <span className="font-bold text-xl">{title}</span> – {formattedDate}
+        </li>
+      </ul>
+
+      
+      <div className="mt-6 bg-blue-50 p-4 rounded-md space-y-2 text-left border border-blue-200">
+        {description.split("\\n").map((line, index) => (
+          <p key={index} className="leading-relaxed text-gray-800">
+            {line}
+          </p>
+        ))}
+      </div>
+
+      <div className="mt-6 text-center">
+        <Link
+          href={`/reservation/${id}`}
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+        >
+          REZERVACE
+        </Link>
+      </div>
     </div>
-    <div className="mt-6 text-center">
-      <Link href="/dashboard" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-        REZERVACE
-      </Link>
-    </div>
-  </div>
-);
+  );
+};
+
+
+
 
 export default function Events() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchReservations = async () => {
+    const data = await axios.get("/api/events");
+    if (data.status == 200) {
+      setEvents(data.data);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchReservations();
+  }, []);
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 p-6">
       <header className="bg-blue-600 text-white p-4 text-center text-2xl font-bold">
         Nadcházející akce v O₂ Aréně
       </header>
 
-      <EventCard
-        img="/ed.jpg"
-        title="Ed Sheeran"
-        date="20. července 2025"
-        description={[
-          "🎤 Ed Sheeran v O₂ Aréně – 20. července 2025 🎶",
-          "Jedna z největších hudebních událostí roku míří do Prahy!",
-          "Připravte se na večer plný emocí a hitů jako Shape of You, Perfect nebo Bad Habits.",
-          "🔔 Nezmeškejte tuto jedinečnou příležitost! Kapacita je omezená, zajistěte si své místo co nejdříve.",
-          "📅 Datum: 20. července 2025",
-          "📍 Místo: O₂ Aréna, Praha",
-          "🎟️ Rezervace vstupenek: Klikněte na tlačítko REZERVACE níže."
-        ]}
-      />
-
-      <EventCard
-        img="/michaldavid.jpg"
-        title="Koncert Michal David"
-        date="30. srpna 2025"
-        description={[
-          "🎤 Michal David v O₂ Aréně – 30. srpna 2025 🎶",
-          "Legendární český zpěvák a hitmaker Michal David se vrací na pódium O₂ Arény!",
-          "Připravte se na legendární skladby jako Pár přátel, Nonstop a další oblíbené hity.",
-          "🔔 Nenechte si ujít tuto mimořádnou událost!",
-          "📅 Datum: 30. srpna 2025",
-          "📍 Místo: O₂ Aréna, Praha",
-          "🎟️ Rezervace vstupenek: Klikněte na tlačítko REZERVACE níže."
-        ]}
-      />
-      <EventCard
-        img="/lynyrd.jpg"
-        title="Lynyrd Skynyrd"
-        date="24. července 2025"
-        description={[
-          "🎸 Lynyrd Skynyrd v O₂ Aréně – 24. července 2025 🎵",
-          "Legendární rocková kapela Lynyrd Skynyrd vystoupí poprvé v Praze!",
-          "Přijďte si užít ikonické skladby jako \"Sweet Home Alabama\", \"Free Bird\" a další klasiky této jižanské rockové kapely.",
-          "🔔 Tento koncert bude nezapomenutelným zážitkem pro všechny milovníky rockové hudby. Nenechte si ho ujít!",
-          "📅 Datum: 24. července 2025",
-          "📍 Místo: O₂ Aréna, Praha",
-          "🎟️ Rezervace vstupenek: Klikněte na tlačítko REZERVACE níže."
-        ]}
-      />
+      {events.map((element) => (
+        <EventCard
+          key={element._id}
+          id={element._id}
+          img={element.img}
+          title={element.title}
+          date={element.date}
+          description={element.description}
+        />
+      ))}
     </div>
   );
 }

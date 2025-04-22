@@ -1,4 +1,5 @@
 "use client"
+import { useParams } from "next/navigation"
 import { useState } from "react"
 
 const stoly = [
@@ -47,10 +48,11 @@ const stoly = [
 
 export default function Dashboard() {
     const [ahoj, setAhoj] = useState()
+    const params = useParams()
     return (
         <div className="flex gap-2 ">
             {stoly.map(element => (
-                <a href = {`/dashboard/${element.id}`} className="bg-black text-white w-fit p-3" key={element.name}>
+                <a href = {`/reservation/chair/${params.id}/${element.id}`} className="bg-black text-white w-fit p-3" key={element.name}>
                     <h2>{element.name}</h2>
                 </a>
             ))}

@@ -1,42 +1,62 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { getReservations } from "./api/events/route";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const fetchReservations = async () => {
+    const data = await axios.get("/api/events");
+    if(data.status == 200){
+      setEvents(data.data)
+      setLoading(false)
+    }
+  };
+
+  useEffect(() => {
+    fetchReservations();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 flex flex-col">
       <header className="bg-blue-600 text-white p-4 text-center text-2xl font-bold">
         <h1>O₂ Arena</h1>
       </header>
       <nav className="flex justify-center space-x-4 p-4 bg-white shadow-md text-lg">
-        <Link href="/" className="text-blue-600 hover:underline">Domů</Link>
-        <Link href="/events" className="text-blue-600 hover:underline">Akce</Link>
-        <Link href="/contact" className="text-blue-600 hover:underline">Kontakt</Link>
-        <Link href="/info" className="text-blue-600 hover:underline">O nás</Link>
+        <Link href="/" className="text-blue-600 hover:underline">
+          Domů
+        </Link>
+        <Link href="/events" className="text-blue-600 hover:underline">
+          Akce
+        </Link>
+        <Link href="/contact" className="text-blue-600 hover:underline">
+          Kontakt
+        </Link>
+        <Link href="/info" className="text-blue-600 hover:underline">
+          O nás
+        </Link>
       </nav>
       <main className=" flex-grow p-6 text-center">
         <h1 className="text-4xl font-bold mb-4">Vítejte v O₂ Aréně!</h1>
         <p className="text-lg text-gray-700 mb-6">Nadcházející Eventy.</p>
 
         <div className="flex justify-center space-x-4">
-          <div className="w-1/3">
-            <Link href="/events">
-              <img
-                src="/michaldavid.jpg"
-                alt="Michal David"
-                className="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90"
-              />
-            </Link>
-          </div>
-          <div className="w-1/3">
-            <Link href="/events">
-              <img
-                src="/lynyrd.jpg"
-                alt="Lynyrd Skynyrd"
-                className="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90"
-              />
-            </Link>
-          </div>
+          {loading ? "Načítám" : ""}
+          {events.map((element) => (
+            <div className="w-1/3" key={element._id}>
+              <Link href="/events">
+                <img
+                  src={element.img}
+                  alt={element.title}
+                  className="w-full rounded-lg shadow-md cursor-pointer hover:opacity-90"
+                />
+              </Link>
+            </div>
+          ))}
         </div>
 
         <div className="mt-10">
@@ -49,20 +69,24 @@ export default function Home() {
             allowFullScreen=""
           ></iframe>
         </div>
-
       </main>
       <footer className="bg-blue-600 text-white text-center p-4 mt-6">
         <p>&copy; 2025 O₂ Arena. Všechna práva vyhrazena.</p>
         <div className="flex justify-center space-x-4 mt-4">
-          <Link href="https://www.facebook.com/o2arenapraha/?locale=cs_CZ " target="_blank"> 
-            <FaFacebook className="text-white text-2xl hover:text-gray-300"  />
+          <Link
+            href="https://www.facebook.com/o2arenapraha/?locale=cs_CZ "
+            target="_blank"
+          >
+            <FaFacebook className="text-white text-2xl hover:text-gray-300" />
           </Link>
-          <Link href="https://www.instagram.com/o2arenapraha/?hl=cs" target="_blank">
+          <Link
+            href="https://www.instagram.com/o2arenapraha/?hl=cs"
+            target="_blank"
+          >
             <FaInstagram className="text-white text-2xl hover:text-gray-300" />
           </Link>
         </div>
       </footer>
-
     </div>
   );
 }
