@@ -2,13 +2,19 @@
 
 import mongoose from "mongoose";
 
-const Event = mongoose.Schema(
-  {
-    title: String,
-    date: Date,
-    description: String,
-    img: String
-  },
-);
+const ReservationSchema = new mongoose.Schema(
+    {
+      eventId: String,
+      eventName: String,
+      price: Number,
+      name: String,
+      surname: String,
+      address: String,
+      phone: String,
+      email: String,
+      seats: [mongoose.Schema.Types.Mixed], //Schema.Types.Mixed uklada čísla 123 i texty jako stání     (skibidi)"
+    },
+    { timestamps: true }
+  );
 
-export default mongoose.models.Event || mongoose.model("Event", Event);
+export default mongoose.models.Reservation || mongoose.model("Reservation", ReservationSchema);

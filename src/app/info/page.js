@@ -7,7 +7,7 @@ export default function Info() {
         <h1>O₂ Arena - Informace</h1>
       </header>
 
-      <nav className="flex justify-center space-x-4 p-4 bg-white shadow-md text-lg">
+      <nav className="flex flex-wrap justify-center space-x-4 p-4 bg-white shadow-md text-lg">
         <Link href="/" className="text-blue-600 hover:underline">
           Domů
         </Link>
@@ -22,13 +22,13 @@ export default function Info() {
         </Link>
       </nav>
 
-      <div className="flex flex-col items-center justify-center mt-10 p-6 bg-white shadow-lg rounded-2xl max-w-6xl mx-auto">
-        <p className="text-lg mb-4 text-center">
+      <div className="flex flex-col items-center justify-center mt-10 p-6 bg-white shadow-lg rounded-2xl max-w-6xl mx-auto w-full">
+        <p className="text-lg mb-4 text-center px-4">
           O₂ Arena je jednou z nejmodernějších multifunkčních hal v Evropě,
           která hostí koncerty, sportovní události a další významné akce.
         </p>
 
-        <div className="flex space-x-8 mb-8">
+        <div className="flex flex-wrap justify-center gap-4 mb-8 text-center">
           <Link href="/info" className="text-blue-600 hover:underline">
             Průvodce arenou
           </Link>
@@ -44,25 +44,25 @@ export default function Info() {
           </Link>
         </div>
 
-        <div className="mt-8 space-y-6">
-          <div className="flex items-center space-x-6">
+        <div className="mt-8 space-y-6 w-full px-4">
+          <div className="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0">
             <img
               src="/o2arena.jpg"
               alt="O₂ Arena"
-              className="w-80  rounded-lg"
+              className="w-full md:w-1/2 rounded-lg"
             />
-            <p className="text-lg">
+            <p className="text-lg md:w-1/2">
               O₂ Arena je symbolem moderní architektury a poskytuje špičkové
               zázemí pro všechny návštěvníky.
             </p>
           </div>
-          <div className="flex items-center space-x-6">
+          <div className="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0">
             <img
               src="/nohavica.jpg"
               alt="Interiér O₂ Areny"
-              className="w-80  rounded-lg"
+              className="w-full md:w-1/2 rounded-lg"
             />
-            <p className="text-lg">
+            <p className="text-lg md:w-1/2">
               Uvnitř arény najdete více než 17 000 míst k sezení a prvotřídní
               technické vybavení.
             </p>

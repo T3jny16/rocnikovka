@@ -8,7 +8,7 @@ export default function Gallery() {
     "/o2arena3.jpg",
     "/o2arena4.jpg",
     "/o2arena5.jpg",
-    "/o2arena6.jpg"
+    "/o2arena6.jpg",
   ];
 
   return (
@@ -18,11 +18,18 @@ export default function Gallery() {
       </header>
 
       <nav className="flex justify-center space-x-4 p-4 bg-white shadow-md text-lg">
-        <Link href="/" className="text-blue-600 hover:underline">Domů</Link>
-        <Link href="/events" className="text-blue-600 hover:underline">Akce</Link>
-        <Link href="/contact" className="text-blue-600 hover:underline">Kontakt</Link>
-        <Link href="/info" className="text-blue-600 hover:underline">O nás</Link>
-
+        <Link href="/" className="text-blue-600 hover:underline">
+          Domů
+        </Link>
+        <Link href="/events" className="text-blue-600 hover:underline">
+          Akce
+        </Link>
+        <Link href="/contact" className="text-blue-600 hover:underline">
+          Kontakt
+        </Link>
+        <Link href="/info" className="text-blue-600 hover:underline">
+          O nás
+        </Link>
       </nav>
 
       <main className="flex-grow container mx-auto px-4 py-8">
